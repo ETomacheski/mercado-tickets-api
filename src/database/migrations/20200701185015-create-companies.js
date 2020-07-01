@@ -1,12 +1,12 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('users', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('companies', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    name: {
+    corporate_name: {
       allowNull: false,
       type: Sequelize.STRING
     },
@@ -18,7 +18,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    cpf: {
+    cnpj: {
       allowNull: false,
       type: Sequelize.STRING
     },
@@ -34,5 +34,5 @@ module.exports = {
       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
     }
   }),
-  down: queryInterface => queryInterface.dropTable('users')
+  down: queryInterface => queryInterface.dropTable('companies')
 }
