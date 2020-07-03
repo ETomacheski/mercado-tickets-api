@@ -15,7 +15,7 @@ const middleware = (req, res, next) => {
       }
     })
   } else {
-    return res.status(404).send('No token')
+    return res.status(500).send('No token')
   }
 }
 
