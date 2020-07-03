@@ -6,7 +6,7 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    ticket: {
+    ticket_id: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
@@ -14,7 +14,7 @@ module.exports = {
         key: 'id'
       }
     },
-    user: {
+    user_id: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
