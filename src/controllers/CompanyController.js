@@ -3,7 +3,7 @@ const { Company } = require('../models')
 module.exports = {
   async index (req, res) {
     try {
-      const companies = await Company.findAll()
+      const companies = await Company.findAll({ include: ['tickets'] })
 
       return res.json(companies)
     } catch (err) {
@@ -13,7 +13,9 @@ module.exports = {
 
   async show (req, res) {
     try {
-      const company = await Company.findByPk(req.params.id)
+      const company = await Company.findByPk(req.params.id, {
+        include: ['tickets']
+      })
 
       return res.json(company)
     } catch (err) {

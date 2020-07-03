@@ -7,5 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     photo: DataTypes.STRING
   })
 
+  Company.associate = function (models) {
+    Company.hasMany(models.Ticket, {
+      foreignKey: 'owner_company',
+      as: 'tickets'
+    })
+  }
+
   return Company
 }
