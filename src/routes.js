@@ -3,10 +3,12 @@ const userController = require('./controllers/UserController')
 const companyController = require('./controllers/CompanyController')
 const loginController = require('./controllers/LoginController')
 const QRController = require('./controllers/QRController')
-
+const Pay = require('./controllers/mercadopagoController')
 const routes = Router()
 const authMiddleware = require('./middlewares/auth')
 
+// routes.get('/test', Pay.test)
+routes.get('/', Pay.testApi)
 routes.post('/userLogin', loginController.user)
 routes.post('/companyLogin', loginController.company)
 routes.get('/qrcode', QRController.generate)
