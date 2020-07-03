@@ -5,7 +5,7 @@ const loginController = require('./controllers/LoginController')
 const QRController = require('./controllers/QRController')
 
 const routes = Router()
-const authMiddleware = require('./middlewares/auth')
+// const authMiddleware = require('./middlewares/auth')
 
 routes.post('/userLogin', loginController.user)
 routes.post('/companyLogin', loginController.company)
