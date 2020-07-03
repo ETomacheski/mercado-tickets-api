@@ -11,7 +11,7 @@ routes.post('/userLogin', loginController.user)
 routes.post('/companyLogin', loginController.company)
 routes.get('/qrcode', QRController.generate)
 
-routes.use(authMiddleware)
+// routes.use(authMiddleware)
 routes.get('/user', userController.index)
 routes.get('/user/:id', userController.show)
 routes.post('/user', userController.store)
