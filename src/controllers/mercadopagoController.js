@@ -1,11 +1,8 @@
 const mercadopago = require('mercadopago')
-const { User } = require('../models')
-const { Ticket } = require('../models')
 
 module.exports = {
 
   async create (user, ticket) {
-    // console.log(user, ticket)
     const paymentData = {
       transaction_amount: parseFloat(ticket.price),
       description: ticket.name,

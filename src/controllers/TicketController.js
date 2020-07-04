@@ -1,5 +1,6 @@
 const { Ticket } = require('../models')
 const { Company } = require('../models')
+const generateHash = require('../utils/generateTicketHash')
 
 module.exports = {
   async index (req, res) {
@@ -32,6 +33,7 @@ module.exports = {
       })
 
       req.body.owner_company = company.id
+      req.body.qr_code_id_hash = generateHash()
       const ticket = await Ticket.create(req.body)
 
       return res.json(ticket)
@@ -62,5 +64,25 @@ module.exports = {
     } catch (err) {
       return res.status(400).json({ error: err.message })
     }
+  },
+
+  async validateTicket (req, res) {
+    const { code } = req.body
+
+    const isValidTicket = await Ticket.findOne({
+      where: {
+        qr_code_id_hash: code
+      }
+    })
+
+    if (!isValidTicket) {
+      return res.status(404).json({
+        ticket: 'invalid'
+      })
+    }
+    return res.status(200).json({
+      ticket: 'valid'
+    })
   }
+
 }
