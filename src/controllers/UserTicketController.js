@@ -1,6 +1,6 @@
 const { Ticket, User, UserTicket } = require('../models')
 const MpController = require('./mercadopagoController')
-const { sendEmail } = require('./EmailController')
+const sendEmail = require('../utils/sendEmail')
 const generateQRCodeId = require('../utils/generateTicketHash')
 
 module.exports = {
