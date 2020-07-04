@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     show: DataTypes.STRING,
     description: DataTypes.STRING,
-    qr_code_id_hash: DataTypes.STRING,
     quantity: DataTypes.INTEGER,
     price: DataTypes.DECIMAL
   })

@@ -24,10 +24,6 @@ module.exports = {
     description: {
       type: Sequelize.STRING
     },
-    qr_code_id_hash: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
     quantity: {
       allowNull: false,
       type: Sequelize.INTEGER

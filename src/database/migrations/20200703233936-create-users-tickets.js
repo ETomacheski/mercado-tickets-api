@@ -29,6 +29,10 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false
     },
+    qr_code_id_hash: {
+      allowNull: false,
+      type: Sequelize.STRING
+    },
     created_at: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')

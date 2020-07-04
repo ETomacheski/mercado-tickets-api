@@ -19,12 +19,18 @@ module.exports = {
         id: ticketID
       }
     })
-    const bill_url = await MpController.create(user, ticket)
+    // const bill_url = await MpController.create(user, ticket)
+    const bill_url = 'trevisan.com'
 
     const status = 'pending'
 
     const ticketUser = await ticket.addUser(user)
-    if (!ticketUser) return res.status(403).send('User has already purchased the ticket')
+    if (!ticketUser) return res.status(204).send('User has already purchased the ticket')
+
+    // const newQuantity = --ticket.quantity
+    // ticket.update({
+    //   quantity: newQuantity
+    // })
 
     await UserTicket.update({
       status,
@@ -33,8 +39,7 @@ module.exports = {
       where: {
         id: ticketUser[0].id
       }
-    }
-    )
+    })
     await sendEmail(userEmail, ticket.name, bill_url)
 
     return res.status(200).send('foi')

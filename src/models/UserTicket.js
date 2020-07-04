@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const UserTicket = sequelize.define('UserTicket', {
     status: DataTypes.STRING,
-    bill_url: DataTypes.STRING
+    bill_url: DataTypes.STRING,
+    qr_code_id_hash: DataTypes.STRING
   }, {
     tableName: 'users_tickets'
   })
