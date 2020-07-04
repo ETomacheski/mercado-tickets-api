@@ -1,4 +1,5 @@
 const { Ticket } = require('../models')
+const { Company } = require('../models')
 
 module.exports = {
   async index (req, res) {
@@ -23,6 +24,14 @@ module.exports = {
 
   async store (req, res) {
     try {
+      const email = req.cookies.userEmail
+      const company = await Company.findOne({
+        where: {
+          email: email
+        }
+      })
+
+      req.body.owner_company = company.id
       const ticket = await Ticket.create(req.body)
 
       return res.json(ticket)

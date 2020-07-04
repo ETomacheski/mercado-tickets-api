@@ -10,7 +10,7 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
-        model: 'companies',
+        model: 'tickets',
         key: 'id'
       }
     },
@@ -24,6 +24,10 @@ module.exports = {
     },
     status: {
       type: Sequelize.STRING
+    },
+    bill_url: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
     created_at: {
       type: Sequelize.DATE,
