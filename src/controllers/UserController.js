@@ -2,8 +2,12 @@ const { User } = require('../models')
 
 module.exports = {
   async index (req, res) {
+    const email = req.cookies.userEmail
     try {
       const users = await User.findAll({
+        where: {
+          email
+        },
         include: ['tickets']
       })
 

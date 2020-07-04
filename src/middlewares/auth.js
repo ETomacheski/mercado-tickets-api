@@ -10,7 +10,7 @@ const middleware = (req, res, next) => {
       if (err) {
         return res.status(403).send('Error')
       } else {
-        console.log(payload)
+        res.cookie('userEmail', payload.email)
         next()
       }
     })
