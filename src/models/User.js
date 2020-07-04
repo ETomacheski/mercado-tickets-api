@@ -7,5 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     photo: DataTypes.STRING
   })
 
+  User.associate = function (models) {
+    User.belongsToMany(models.Ticket, {
+      through: 'users_tickets',
+      foreignKey: 'user_id',
+      as: 'tickets'
+    })
+  }
+
   return User
 }
