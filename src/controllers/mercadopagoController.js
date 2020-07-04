@@ -1,68 +1,32 @@
 const mercadopago = require('mercadopago')
-const User = require('../models/User')
-const Ticket = require('../models/Ticket')
+const { User } = require('../models')
+const { Ticket } = require('../models')
 
 module.exports = {
-  async test (req, res) {
-    // 27644986
-    mercadopago.payment.get('27644985').then(function (data) {
-      console.log(data.status)
-      return res.json(data.response.status)
-    }).catch(function (error) {
-      console.log(error)
-    })
-    // const payment_data = {
-    //   transaction_amount: 100,
-    //   description: 'Título do produto',
-    //   payment_method_id: 'bolbradesco',
-    //   payer: {
-    //     email: 'test@test.com',
-    //     first_name: 'Test',
-    //     last_name: 'User',
-    //     identification: {
-    //       type: 'CPF',
-    //       number: '19119119100'
-    //     },
-    //     address: {
-    //       zip_code: '06233200',
-    //       street_name: 'Av. das Nações Unidas',
-    //       street_number: '3003',
-    //       neighborhood: 'Bonfim',
-    //       city: 'Osasco',
-    //       federal_unit: 'SP'
-    //     }
-    //   }
-    // }
-
-    // mercadopago.payment.create(payment_data).then(function (data) {
-    //   console.log(data)
-    // }).catch(function (error) {
-    //   console.log(error)
-    // })
-  },
   async testApi (req, res) {
     res.status(200).send('opa')
   },
 
   async create (ticketId, userId) {
-    const user = User.findOne({
+    const user = await User.findOne({
       where: {
         id: userId
       }
     })
-    const ticket = Ticket.findOne({
+    const ticket = await Ticket.findOne({
       where: {
         id: ticketId
       }
     })
+    // console.log(user, ticket)
     const paymentData = {
-      transaction_amount: ticket.price,
+      transaction_amount: parseFloat(ticket.price),
       description: ticket.name,
       payment_method_id: 'bolbradesco',
       payer: {
         email: user.email,
-        first_name: user.email,
-        last_name: '',
+        first_name: user.name,
+        last_name: ' ',
         identification: {
           type: 'CPF',
           number: user.cpf
@@ -77,5 +41,38 @@ module.exports = {
         }
       }
     }
+    const payment_data = {
+      transaction_amount: 100,
+      description: 'Título do produto',
+      payment_method_id: 'bolbradesco',
+      payer: {
+        email: 'test@test.com',
+        first_name: 'Test',
+        last_name: 'User',
+        identification: {
+          type: 'CPF',
+          number: '19119119100'
+        },
+        address: {
+          zip_code: '06233200',
+          street_name: 'Av. das Nações Unidas',
+          street_number: '3003',
+          neighborhood: 'Bonfim',
+          city: 'Osasco',
+          federal_unit: 'SP'
+        }
+      }
+    }
+
+    const data = await mercadopago.payment.create(paymentData)
+    const url = await data.response.transaction_details.external_resource_url
+    return url
+    // .then(async function (data) {
+    //   const test = await data.response.transaction_details.external_resource_url
+    //   // console.log(test)
+    //   return test
+    // }).catch(function (error) {
+    //   console.log(error)
+    // })
   }
 }

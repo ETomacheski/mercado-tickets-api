@@ -9,8 +9,6 @@ const Pay = require('./controllers/mercadopagoController')
 const routes = Router()
 const authMiddleware = require('./middlewares/auth')
 
-routes.get('/test', Pay.test)
-routes.get('/', Pay.testApi)
 routes.post('/userLogin', loginController.user)
 routes.post('/companyLogin', loginController.company)
 routes.get('/qrcode', QRController.generate)

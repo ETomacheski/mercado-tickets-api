@@ -1,4 +1,5 @@
-const { Ticket, User } = require('../models')
+const { Ticket, User, UserTicket } = require('../models')
+const MpController = require('./mercadopagoController')
 
 module.exports = {
   async buyTicket (req, res) {
@@ -17,15 +18,22 @@ module.exports = {
         id: ticketID
       }
     })
+    const bill_url = await MpController.create(ticketID, user.id)
 
     const status = 'pending'
 
-    ticket.addUser(user, {
-      through: {
-        status
+    const ticketUser = await ticket.addUser(user)
+    console.log(ticketUser[0].id)
+    await UserTicket.update({
+      status,
+      bill_url
+    }, {
+      where: {
+        id: ticketUser[0].id
       }
-    })
+    }
+    )
 
-    return res.status(200).send()
+    return res.status(200).json(ticketUser)
   }
 }
