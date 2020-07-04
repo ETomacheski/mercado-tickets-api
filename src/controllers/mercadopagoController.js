@@ -3,9 +3,6 @@ const { User } = require('../models')
 const { Ticket } = require('../models')
 
 module.exports = {
-  async testApi (req, res) {
-    res.status(200).send('opa')
-  },
 
   async create (user, ticket) {
     // console.log(user, ticket)
