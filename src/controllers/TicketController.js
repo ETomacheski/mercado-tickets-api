@@ -1,11 +1,11 @@
-const { Company } = require('../models')
+const { Ticket } = require('../models')
 
 module.exports = {
   async index (req, res) {
     try {
-      const companies = await Company.findAll({ include: ['tickets'] })
+      const tickets = await Ticket.findAll()
 
-      return res.json(companies)
+      return res.json(tickets)
     } catch (err) {
       return res.status(400).json({ error: err.message })
     }
@@ -13,11 +13,9 @@ module.exports = {
 
   async show (req, res) {
     try {
-      const company = await Company.findByPk(req.params.id, {
-        include: ['tickets']
-      })
+      const ticket = await Ticket.findByPk(req.params.id)
 
-      return res.json(company)
+      return res.json(ticket)
     } catch (err) {
       return res.status(400).json({ error: err.message })
     }
@@ -25,9 +23,9 @@ module.exports = {
 
   async store (req, res) {
     try {
-      const company = await Company.create(req.body)
+      const ticket = await Ticket.create(req.body)
 
-      return res.json(company)
+      return res.json(ticket)
     } catch (err) {
       return res.status(400).json({ error: err.message })
     }
@@ -35,11 +33,11 @@ module.exports = {
 
   async update (req, res) {
     try {
-      const company = await Company.findByPk(req.params.id)
+      const ticket = await Ticket.findByPk(req.params.id)
 
-      await company.update(req.body)
+      await ticket.update(req.body)
 
-      return res.json({ company })
+      return res.json({ ticket })
     } catch (err) {
       return res.status(400).json({ error: err.message })
     }
@@ -47,9 +45,9 @@ module.exports = {
 
   async destroy (req, res) {
     try {
-      const company = await Company.findByPk(req.params.id)
+      const ticket = await Ticket.findByPk(req.params.id)
 
-      await company.destroy()
+      await ticket.destroy()
 
       return res.json()
     } catch (err) {

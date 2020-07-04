@@ -3,7 +3,9 @@ const { User } = require('../models')
 module.exports = {
   async index (req, res) {
     try {
-      const users = await User.findAll()
+      const users = await User.findAll({
+        include: ['tickets']
+      })
 
       return res.json(users)
     } catch (err) {
@@ -13,7 +15,9 @@ module.exports = {
 
   async show (req, res) {
     try {
-      const user = await User.findByPk(req.params.id)
+      const user = await User.findByPk(req.params.id, {
+        include: ['tickets']
+      })
 
       return res.json(user)
     } catch (err) {
