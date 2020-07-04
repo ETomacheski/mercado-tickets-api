@@ -13,7 +13,7 @@ module.exports = {
     const isUserAuthenticated = await authenticateUser(email, password)
 
     if (!isUserAuthenticated) return res.status(401).send()
-    const token = jwt.sign({ email }, privateKey, {
+    const token = await jwt.sign({ email }, privateKey, {
       expiresIn: 3600 // expires in 1 hour
     })
     res.cookie('auth', token, {
