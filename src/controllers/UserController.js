@@ -8,7 +8,12 @@ module.exports = {
         where: {
           email
         },
-        include: ['tickets']
+        include: {
+          association: 'tickets',
+          through: {
+            attributes: ['qr_code_id_hash']
+          }
+        }
       })
 
       return res.json(users)
