@@ -24,7 +24,6 @@ module.exports = {
     const status = 'pending'
 
     const ticketUser = await ticket.addUser(user)
-    console.log(ticketUser[0].id)
     await UserTicket.update({
       status,
       bill_url

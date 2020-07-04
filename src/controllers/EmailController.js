@@ -25,7 +25,6 @@ module.exports = {
       if (error) {
         console.log(error)
       } else {
-        console.log('Email sent: ' + info.response)
         return true
       }
     })
