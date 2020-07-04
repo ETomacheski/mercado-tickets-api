@@ -19,7 +19,7 @@ module.exports = {
     res.cookie('auth', token, {
       httpOnly: true
     })
-
+    res.cookie('userEmail', email)
     res.status(200).send()
   },
 
