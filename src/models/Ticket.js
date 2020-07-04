@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'owner_company',
       as: 'company'
     })
+    Ticket.belongsToMany(models.User, {
+      through: 'users_tickets',
+      foreignKey: 'ticket_id',
+      as: 'user'
+    })
   }
 
   return Ticket

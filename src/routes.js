@@ -4,6 +4,7 @@ const companyController = require('./controllers/CompanyController')
 const loginController = require('./controllers/LoginController')
 const QRController = require('./controllers/QRController')
 const ticketController = require('./controllers/TicketController')
+const userTicketController = require('./controllers/UserTicketController')
 const Pay = require('./controllers/mercadopagoController')
 const routes = Router()
 const authMiddleware = require('./middlewares/auth')
@@ -32,5 +33,7 @@ routes.get('/ticket/:id', ticketController.show)
 routes.post('/ticket', ticketController.store)
 routes.put('/ticket/:id', ticketController.update)
 routes.delete('/ticket/:id', ticketController.destroy)
+
+routes.post('/buyTicket/:id', userTicketController.buyTicket)
 
 module.exports = routes
