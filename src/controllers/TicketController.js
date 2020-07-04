@@ -1,4 +1,4 @@
-const { Ticket } = require('../models')
+const { Ticket, UserTicket } = require('../models')
 const { Company } = require('../models')
 const generateHash = require('../utils/generateTicketHash')
 
@@ -69,11 +69,13 @@ module.exports = {
   async validateTicket (req, res) {
     const { code } = req.body
 
-    const isValidTicket = await Ticket.findOne({
+    const isValidTicket = await UserTicket.findOne({
       where: {
         qr_code_id_hash: code
       }
     })
+
+    console.log(isValidTicket)
 
     if (!isValidTicket) {
       return res.status(404).json({
