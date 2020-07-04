@@ -24,7 +24,8 @@ module.exports = {
     const status = 'pending'
 
     const ticketUser = await ticket.addUser(user)
-    console.log(ticketUser[0].id)
+    if (!ticketUser) return res.status(403).send('User has already purchased the ticket')
+
     await UserTicket.update({
       status,
       bill_url
