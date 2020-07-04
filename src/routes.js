@@ -33,5 +33,6 @@ routes.put('/ticket/:id', ticketController.update)
 routes.delete('/ticket/:id', ticketController.destroy)
 
 routes.post('/buyTicket/:id', userTicketController.buyTicket)
+routes.post('/checkTicket', ticketController.validateTicket)
 
 module.exports = routes
