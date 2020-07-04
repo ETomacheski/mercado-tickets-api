@@ -1,11 +1,9 @@
+const mercadopago = require('mercadopago')
+const User = require('../models/User')
+const Ticket = require('../models/Ticket')
 
 module.exports = {
   async test (req, res) {
-    var mercadopago = require('mercadopago')
-    mercadopago.configure({
-      sandbox: true,
-      access_token: 'TEST-6516124841781548-070321-a739e9a68fe62ca91ce0c5fffa68d27b-283355242'
-    })
     // 27644986
     mercadopago.payment.get('27644985').then(function (data) {
       console.log(data.status)
@@ -44,5 +42,40 @@ module.exports = {
   },
   async testApi (req, res) {
     res.status(200).send('opa')
+  },
+
+  async create (ticketId, userId) {
+    const user = User.findOne({
+      where: {
+        id: userId
+      }
+    })
+    const ticket = Ticket.findOne({
+      where: {
+        id: ticketId
+      }
+    })
+    const paymentData = {
+      transaction_amount: ticket.price,
+      description: ticket.name,
+      payment_method_id: 'bolbradesco',
+      payer: {
+        email: user.email,
+        first_name: user.email,
+        last_name: '',
+        identification: {
+          type: 'CPF',
+          number: user.cpf
+        },
+        address: {
+          zip_code: '96700000',
+          street_name: 'Marcionilio Saraiva da Fonseca',
+          street_number: '728',
+          neighborhood: 'Centro',
+          city: 'São Jerônimo',
+          federal_unit: 'RS'
+        }
+      }
+    }
   }
 }
