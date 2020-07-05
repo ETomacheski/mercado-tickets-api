@@ -2,8 +2,16 @@
 <img src="https://github.com/rafaelst2000/megahack-frontend/blob/master/src/img/logo.png"/>
 </h1>
 
+<div align="center">
+  
+![Node_Badge][node_version_badge] ![Npm_Badge][npm_version_badge] ![React_Badge][web_react_badge] ![React_Native_Badge][mobile_react-native_badge] ![NodeJS_Badge][server_nodejs_badge] [![Javascript](https://badges.frapsoft.com/javascript/code/javascript.png?v=101)](https://github.com/ellerbrock/javascript-badges/)
+</div>
+
+
 <h3 align="center">
-Projeto desenvolvindo durante a MegaHack, evento promovido pela Shawee.
+
+Projeto desenvolvido na 3ª Megahack da **[Shawee][shawee_site]** utilizando as tecnologias ***Javascript, Node.js, ReactJS, React Native***.
+
 </h3>
 
 ## **:rocket: Objetivo**
