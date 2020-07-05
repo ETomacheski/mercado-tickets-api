@@ -23,14 +23,6 @@ Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado 
 
 [font_ubuntu]: https://fonts.google.com/specimen/Ubuntu
 
-### **Executando o Projeto**
-
-#### **:computer: Frontend**
-> 1. $cd frontend
-> 2. $npm install
-> 3. $npm start
-> 4. No seu navegador, acesse localhost:3000
-> 5. Enjoy!
 
 #### **Server** NodeJS
 
@@ -46,6 +38,15 @@ Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado 
 > 1. $npm install
 > 2. $npm run dev
 > 3. $npx sequelize db:migrate  (criação do banco de dados)
+
+### **Executando o Projeto**
+
+#### **:computer: Frontend**
+> 1. $cd frontend
+> 2. $npm install
+> 3. $npm start
+> 4. No seu navegador, acesse localhost:3000
+> 5. Enjoy!
 
 #### **:computer: Frontend**
 > 1. $cd frontend
