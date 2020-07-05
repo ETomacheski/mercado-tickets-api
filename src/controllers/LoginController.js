@@ -18,7 +18,7 @@ module.exports = {
     })
     res.cookie('auth', token)
     res.cookie('userEmail', email)
-    res.status(200).send()
+    res.status(200).json(token, email)
   },
 
   async company (req, res) {
@@ -33,7 +33,7 @@ module.exports = {
     res.cookie('auth', token)
     res.cookie('userEmail', email)
 
-    res.status(200).send()
+    res.status(200).json(token, email)
   }
 
 }
