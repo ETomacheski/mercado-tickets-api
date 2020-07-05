@@ -1,3 +1,7 @@
+<h1 align=center>
+<img src="https://github.com/rafaelst2000/megahack-frontend/blob/master/src/img/logo.png"/>
+</h1>
+
 <h3 align="center">
 Projeto desenvolvindo durante a MegaHack, evento promovido pela Shawee.
 </h3>
