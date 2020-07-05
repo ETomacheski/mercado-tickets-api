@@ -11,19 +11,6 @@ Projeto desenvolvindo durante a MegaHack, evento promovido pela Shawee.
 Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado Livre, atribuindo a plataforma a venda de ingressos para eventos como: teatro, cinema, festas entre outros. Teremos a função de vendas em uma plataforma web, tendo nela dois tipo de usuários: o produtor de eventos e o cliente final. Na visão do cliente ele pode procurar por eventos e comprar os ingressos, já na visão do produtor ele pode criar os eventos e a quantidade de ingressos disponíveis. Para completar a validação do ingresso estamos gerando no aplicativo um QR Code que é lido pelo produtor do evento antes de liberar a entrada no mesmo.
 ## **:computer: Tecnologias**
 
-  #### **Aplicativo: React-Native + Javascript**
-  
-  - **Expo**
-  - **React-Navigation**
-  - **React Icons**
-  - **Axios**
-  - **BarCodeScanner**
-
-[font_roboto]: https://fonts.google.com/specimen/Roboto
-
-[font_ubuntu]: https://fonts.google.com/specimen/Ubuntu
-
-
 #### **Server** NodeJS
 
   - **Express**
@@ -60,12 +47,6 @@ Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado 
 > 3. $npm start
 > 4. No seu navegador, acesse localhost:3000
 > 5. Enjoy!
-
-#### **:computer: Frontend**
-> 1. $cd frontend
-> 2. $npm install
-> 3. $npm start
-> 4. No seu navegador, acesse localhost:3000
 
 #### **:iphone: Mobile**
 > 1. $cd mobile
