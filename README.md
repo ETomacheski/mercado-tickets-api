@@ -1,7 +1,3 @@
-<h1 align=center>
-<img src="" />
-</h1>
-
 <h3 align="center">
 Projeto desenvolvindo durante a MegaHack, evento promovido pela Shawee.
 </h3>
