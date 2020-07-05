@@ -16,9 +16,7 @@ module.exports = {
     const token = await jwt.sign({ email }, privateKey, {
       expiresIn: 3600 * 24 // expires in 1 hour
     })
-    res.cookie('auth', token, {
-      httpOnly: true
-    })
+    res.cookie('auth', token)
     res.cookie('userEmail', email)
     res.status(200).send()
   },
@@ -32,10 +30,8 @@ module.exports = {
     const token = jwt.sign({ email }, privateKey, {
       expiresIn: 3600 * 24 // expires in 1 hour
     })
+    res.cookie('auth', token)
     res.cookie('userEmail', email)
-    res.cookie('auth', token, {
-      httpOnly: true
-    })
 
     res.status(200).send()
   }
