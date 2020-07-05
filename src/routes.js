@@ -9,17 +9,17 @@ const authMiddleware = require('./middlewares/auth')
 
 routes.post('/userLogin', loginController.user)
 routes.post('/companyLogin', loginController.company)
+routes.post('/user', userController.store)
+routes.post('/company', companyController.store)
 
 routes.use(authMiddleware)
 routes.get('/user', userController.index)
 routes.get('/user/:id', userController.show)
-routes.post('/user', userController.store)
 routes.put('/user/:id', userController.update)
 routes.delete('/user/:id', userController.destroy)
 
 routes.get('/company', companyController.index)
 routes.get('/company/:id', companyController.show)
-routes.post('/company', companyController.store)
 routes.put('/company/:id', companyController.update)
 routes.delete('/company/:id', companyController.destroy)
 
