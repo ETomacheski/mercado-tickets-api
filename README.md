@@ -31,6 +31,21 @@ Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado 
   - **Sequelize**
   - **Postgres**
   - **MercadoPago API**
+  
+#### **Website: React + Javascript** 
+
+  - **React Router Dom**
+  - **React Icons**
+  - **Axios**
+  - **React-Cookie**
+  
+#### **Aplicativo: React-Native + Javascript**
+  
+  - **Expo**
+  - **React-Navigation**
+  - **React Icons**
+  - **Axios**
+  - **BarCodeScanner**
 
 ### **Executando o Projeto**
 
@@ -38,8 +53,6 @@ Somos uma plataforma que tem como objetivo agregar valor ao business do Mercado 
 > 1. $npm install
 > 2. $npm run dev
 > 3. $npx sequelize db:migrate  (criação do banco de dados)
-
-### **Executando o Projeto**
 
 #### **:computer: Frontend**
 > 1. $cd frontend
